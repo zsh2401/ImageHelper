@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/btm_nav_flash"
+        android:icon="@mipmap/ic_flash"
+        android:title="@string/action_flash"/>
+
+    <item android:id="@+id/btm_nav_extract"
+        android:icon="@mipmap/ic_extract"
+        android:title="@string/action_extract"/>
+
+</menu>

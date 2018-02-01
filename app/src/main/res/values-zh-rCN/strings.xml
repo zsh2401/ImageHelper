@@ -1,0 +1,31 @@
+<resources>
+    <string name="l_auto">自动</string>
+    <string name="language_name">@string/l_zh_cn</string>
+    <string name="app_name">镜像助手</string>
+    <string name="nav_drawer_open">Open</string>
+    <string name="nav_drawer_close">Close</string>
+    <string name="action_donate">捐赠</string>
+    <string name="action_about">关于</string>
+    <string name="action_goto_os">开源</string>
+    <string name="action_flash">刷入</string>
+    <string name="action_extract">提取</string>
+    <string name="action_switch_language">切换语言</string>
+
+    <string name="msg_goto_alipay_failed">跳转支付宝转账失败...已复制支付宝账号,请手动前往支付宝粘贴账号并转账..</string>
+    <string name="title_opensource">这是一个自由开源软件</string>
+    <string name="msg_opensouce">协议GPL3.0\n开源地址:github.com/zsh2401/imagehelper</string>
+    <string name="btn_viewongithub">前往项目主页</string>
+    <string name="url_opensource">https://github.com/zsh2401/imagehelper</string>
+
+    <string name="title_about">关于这个软件</string>
+    <string name="msg_about">没什么好说的,做你想做的事</string>
+    <string name="btn_ok">好的</string>
+
+    <string name="title_donate">捐赠开发者</string>
+    <string name="msg_donate">捐赠开发者,共同营造更加良好的安卓应用生态</string>
+    <string name="btn_cp_wechat_account">复制微信账号</string>
+    <string name="btn_cp_alipay_redpacket_code">复制支付宝红包口令</string>
+    <string name="btn_goto_alipay">支付宝转账</string>
+
+    <string name="msg_copied">已复制</string>
+</resources>

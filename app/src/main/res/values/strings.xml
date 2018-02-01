@@ -1,0 +1,35 @@
+<resources>
+    <string name="l_en_us">English</string>
+    <string name="l_zh_cn">简体中文</string>
+
+
+    <string name="l_auto">Auto</string>
+    <string name="language_name">@string/l_en_us</string>
+    <string name="app_name">Image helper</string>
+    <string name="nav_drawer_open">Open</string>
+    <string name="nav_drawer_close">Close</string>
+    <string name="action_donate">Donate</string>
+    <string name="action_about">About</string>
+    <string name="action_goto_os">Open source</string>
+    <string name="action_flash">Flash</string>
+    <string name="action_extract">Extract</string>
+    <string name="action_switch_language">Switch language</string>
+    <string name="msg_goto_alipay_failed">Open alipay was failed...alipay account copied</string>
+
+    <string name="title_opensource">This is a open source software</string>
+    <string name="msg_opensouce">GPL3.0\nRepo url https://github.com/zsh2401/imagehelper</string>
+    <string name="btn_viewongithub">View on github</string>
+    <string name="url_opensource">https://github.com/zsh2401/</string>
+
+    <string name="title_about">About this software</string>
+    <string name="msg_about">Nothing.....do you want to do...</string>
+    <string name="btn_ok">OK</string>
+
+    <string name="title_donate">Donate</string>
+    <string name="msg_donate">Donate me,make android better together</string>
+    <string name="btn_cp_wechat_account">copy wechat account</string>
+    <string name="btn_cp_alipay_redpacket_code">copy alipay redpacket code</string>
+    <string name="btn_goto_alipay">donate on alipay</string>
+
+    <string name="msg_copied">Copied</string>
+</resources>
