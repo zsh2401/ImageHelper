@@ -19,7 +19,7 @@
     <string name="title_opensource">This is a open source software</string>
     <string name="msg_opensouce">GPL3.0\nRepo url https://github.com/zsh2401/imagehelper</string>
     <string name="btn_viewongithub">View on github</string>
-    <string name="url_opensource">https://github.com/zsh2401/</string>
+    <string name="url_opensource">https://github.com/zsh2401/imagehelper/</string>
 
     <string name="title_about">About this software</string>
     <string name="msg_about">Nothing.....do you want to do...</string>

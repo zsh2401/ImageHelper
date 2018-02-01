@@ -15,7 +15,7 @@
     <string name="title_opensource">这是一个自由开源软件</string>
     <string name="msg_opensouce">协议GPL3.0\n开源地址:github.com/zsh2401/imagehelper</string>
     <string name="btn_viewongithub">前往项目主页</string>
-    <string name="url_opensource">https://github.com/zsh2401/imagehelper</string>
+    <string name="url_opensource">https://github.com/zsh2401/imagehelper/</string>
 
     <string name="title_about">关于这个软件</string>
     <string name="msg_about">没什么好说的,做你想做的事</string>
