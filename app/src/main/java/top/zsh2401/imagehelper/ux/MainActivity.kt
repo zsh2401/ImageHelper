@@ -1,4 +1,4 @@
-package top.zsh2401.imagehelper
+package top.zsh2401.imagehelper.ux
 
 import android.content.Intent
 import android.net.Uri
@@ -14,6 +14,8 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
+import top.zsh2401.imagehelper.R
 
 class MainActivity : AppCompatActivity(),
         View.OnClickListener,
@@ -21,7 +23,7 @@ class MainActivity : AppCompatActivity(),
         ViewPager.OnPageChangeListener
 {
 
-
+    private lateinit var viewList:ArrayList<View>
     private lateinit var mNavView:NavigationView
     private lateinit var mToolbar:Toolbar
     private lateinit var mDrawer:DrawerLayout
@@ -33,18 +35,28 @@ class MainActivity : AppCompatActivity(),
         initViewObj()
         initViewPager()
         initDrawer()
+        Flow.mainActivity = this
+        Flow.view = mNavView
         initEvent()
     }
-    private  lateinit var viewList:ArrayList<View>
+
     private fun initEvent(){
         mBottomNav.setOnNavigationItemSelectedListener(this)
         mViewPager.addOnPageChangeListener(this)
         initNavEvent()
+        viewList[0].findViewById<Button>(R.id.btn_flash_recovery).setOnClickListener(this)
+        viewList[0].findViewById<Button>(R.id.btn_flash_boot).setOnClickListener(this)
+        viewList[1].findViewById<Button>(R.id.btn_extract_recovery).setOnClickListener(this)
+        viewList[1].findViewById<Button>(R.id.btn_extract_boot).setOnClickListener(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
     private fun initNavEvent(){
         mNavView.setNavigationItemSelectedListener({view->
             when(view.itemId){
-                R.id.nav_about->{
+                R.id.nav_about ->{
                     mDrawer.closeDrawers()
                     var builder = AlertDialog.Builder(this)
                     builder.setTitle(R.string.title_about)
@@ -52,7 +64,7 @@ class MainActivity : AppCompatActivity(),
                     builder.setNegativeButton(R.string.btn_ok,null)
                     builder.show()
                 }
-                R.id.nav_donate->{
+                R.id.nav_donate ->{
                     mDrawer.closeDrawers()
                     var builder = AlertDialog.Builder(this)
                     builder.setTitle(R.string.title_donate)
@@ -70,19 +82,19 @@ class MainActivity : AppCompatActivity(),
                     builder.setNeutralButton(R.string.btn_goto_alipay,{ _, _ ->
                         if(!gotoAlipay()){
                             copyAlipayAccount()
-                            Snackbar.make(mNavView,R.string.msg_goto_alipay_failed,Snackbar.LENGTH_LONG)
+                            Snackbar.make(mNavView, R.string.msg_goto_alipay_failed,Snackbar.LENGTH_LONG)
                                     .setAction("ok",null)
                                     .show()
                         }
                     })
                     builder.show()
                 }
-                R.id.nav_opensource->{
+                R.id.nav_opensource ->{
                     mDrawer.closeDrawers()
                     var builder = AlertDialog.Builder(this)
                     builder.setTitle(R.string.title_opensource)
                     builder.setMessage(R.string.msg_opensouce)
-                    builder.setPositiveButton(R.string.btn_viewongithub,{v,i->
+                    builder.setPositiveButton(R.string.btn_viewongithub,{ v, i->
                         var intent =
                                 Intent(Intent.ACTION_VIEW, Uri.parse(resources.getString(R.string.url_opensource)))
                         startActivity(intent)
@@ -113,20 +125,33 @@ class MainActivity : AppCompatActivity(),
         setSupportActionBar(mToolbar)
         var toggle = ActionBarDrawerToggle(this,
                 mDrawer,mToolbar,
-                R.string.nav_drawer_open,R.string.nav_drawer_close)
+                R.string.nav_drawer_open, R.string.nav_drawer_close)
         mDrawer.addDrawerListener(toggle)
         toggle.syncState()
     }
 
     override fun onClick(p0: View?) {
-
+        when(p0!!.id){
+            R.id.btn_extract_boot->{
+                Flow.extractBoot()
+            }
+            R.id.btn_extract_recovery->{
+                Flow.extractRecovery()
+            }
+            R.id.btn_flash_boot->{
+                Flow.flashBoot()
+            }
+            R.id.btn_flash_recovery->{
+                Flow.flashRecovery()
+            }
+        }
     }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
-            R.id.btm_nav_flash->{
+            R.id.btm_nav_flash ->{
                 mViewPager.setCurrentItem(0)
                 return true}
-            R.id.btm_nav_extract->{
+            R.id.btm_nav_extract ->{
                 mViewPager.setCurrentItem(1)
                 return true}
             else->false
@@ -138,8 +163,10 @@ class MainActivity : AppCompatActivity(),
 
     override fun onPageSelected(position: Int) {
         when(position){
-            0->{mBottomNav.selectedItemId = R.id.btm_nav_flash}
-            1->{mBottomNav.selectedItemId = R.id.btm_nav_extract}
+            0->{mBottomNav.selectedItemId = R.id.btm_nav_flash
+            }
+            1->{mBottomNav.selectedItemId = R.id.btm_nav_extract
+            }
         }
     }
 }

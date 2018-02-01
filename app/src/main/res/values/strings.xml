@@ -32,4 +32,21 @@
     <string name="btn_goto_alipay">donate on alipay</string>
 
     <string name="msg_copied">Copied</string>
+
+    <string name="btn_recovery">Recovery.img</string>
+    <string name="btn_boot">Boot.img</string>
+    <string name="tip_extract">Which one to extract?</string>
+    <string name="tip_flash">Which one to flash?</string>
+
+    <string name="msg_extracting">Extracting...plz wait</string>
+    <string name="msg_flashing">Flashing...plz wait</string>
+
+    <string name="title_successed">Successed</string>
+    <string name="title_failed">Failed</string>
+
+    <string name="msg_extract_ok">You can see the img file in /sdcard/</string>
+    <string name="msg_extract_failed">Maybe:\nRoot error\nCan not found image</string>
+    
+    <string name="msg_flash_ok">Successful!</string>
+    <string name="msg_flash_failed">Failed!</string>
 </resources>

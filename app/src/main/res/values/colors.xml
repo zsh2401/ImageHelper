@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="pageBgColor">#eeeeee</color>
+    <color name="btn0Color">#00ccff</color>
+    <color name="btn1Color">#cc00ff</color>
+    <color name="btn2Color">#aacc00</color>
+    <color name="btn3Color">#fc00a0</color>
 </resources>

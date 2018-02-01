@@ -1,5 +1,7 @@
-package top.zsh2401.imagehelper
+package top.zsh2401.imagehelper.ux
 
+import top.zsh2401.imagehelper.App
+import top.zsh2401.imagehelper.R
 import java.util.*
 
 /**
@@ -13,10 +15,13 @@ object LanguageHelper{
 
     fun setLanguageBySerial(languageCode:Int){
         when(languageCode){
-            1->{App.gConfig.locale = Locale.CHINESE}
-            2->{App.gConfig.locale = Locale.ENGLISH
+            1->{
+                App.gConfig.locale = Locale.CHINESE}
+            2->{
+                App.gConfig.locale = Locale.ENGLISH
             }
-            else->{App.gConfig.locale = Locale.getDefault()}
+            else->{
+                App.gConfig.locale = Locale.getDefault()}
         }
 
     }

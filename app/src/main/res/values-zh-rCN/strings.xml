@@ -28,4 +28,18 @@
     <string name="btn_goto_alipay">支付宝转账</string>
 
     <string name="msg_copied">已复制</string>
+
+    <string name="btn_recovery">Recovery.img</string>
+    <string name="btn_boot">Boot.img</string>
+    <string name="tip_extract">提取哪一个?</string>
+    <string name="tip_flash">刷入哪一个?</string>
+
+    <string name="title_successed">成功</string>
+    <string name="title_failed">失败</string>
+
+    <string name="msg_extract_ok">你可以在主存储目录下看到提取出来的镜像文件</string>
+    <string name="msg_extract_failed">可能的原因:\nRoot故障\n找不到镜像文件</string>
+
+    <string name="msg_flash_ok">刷入成功</string>
+    <string name="msg_flash_failed">可能的原因:\nRoot故障\n找不到镜像文件</string>
 </resources>

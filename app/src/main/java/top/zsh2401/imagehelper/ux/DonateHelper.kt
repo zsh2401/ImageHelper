@@ -1,11 +1,10 @@
-package top.zsh2401.imagehelper
+package top.zsh2401.imagehelper.ux
 
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.support.design.widget.Snackbar
-import android.widget.Toast
+import top.zsh2401.imagehelper.App
 
 /**
  * Created by zsh24 on 02/01/2018.
@@ -35,7 +34,7 @@ fun copyAlipayAccount(){
     clipboardManager.text = alipayAccount
 }
 fun copyAlipayRedpacketCode(){
-    clipboardManager.text =  alipayRedpacketCode
+    clipboardManager.text = alipayRedpacketCode
 }
 
 private fun isInstallAlipayClient() :Boolean{

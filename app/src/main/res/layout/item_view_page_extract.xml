@@ -1,7 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pageBgColor">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/pageBgColor"
+    android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp">
+        <TextView
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:text="@string/tip_extract"/>
+        <android.support.percent.PercentFrameLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/btn_extract_recovery"
+                android:backgroundTint="@color/btn0Color"
+                android:padding="20dp"
+                app:layout_heightPercent="45%"
+                android:textColor="#ffffff"
+                android:layout_width="match_parent"
+                android:text="@string/btn_recovery"/>
+            <Button
+                android:id="@+id/btn_extract_boot"
+                android:layout_gravity="bottom"
+                android:backgroundTint="@color/btn1Color"
+                android:padding="20dp"
+                app:layout_heightPercent="45%"
+                android:textColor="#ffffff"
+                android:layout_width="match_parent"
+                android:text="@string/btn_boot"/>
+        </android.support.percent.PercentFrameLayout>
+    </LinearLayout>
 </LinearLayout>

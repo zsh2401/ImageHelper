@@ -1,4 +1,4 @@
-package top.zsh2401.imagehelper
+package top.zsh2401.imagehelper.ux
 
 import android.support.v4.view.PagerAdapter
 import android.view.View
