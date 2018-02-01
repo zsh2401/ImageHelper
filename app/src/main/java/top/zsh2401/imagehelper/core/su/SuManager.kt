@@ -20,7 +20,7 @@ object SuManager {
     }
     fun haveRootPermission():Boolean{
         try{
-            if(!deviceIsRoot())return false
+//            if(!deviceIsRoot())return false
             Runtime.getRuntime().exec("su").destroy()
             return true
         }catch (ex:Exception){

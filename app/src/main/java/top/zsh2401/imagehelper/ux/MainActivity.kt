@@ -1,8 +1,16 @@
 package top.zsh2401.imagehelper.ux
 
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.ContentUris
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.os.Environment
+import android.provider.DocumentsContract
+import android.provider.MediaStore
 import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
@@ -12,6 +20,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
@@ -23,6 +32,7 @@ class MainActivity : AppCompatActivity(),
         ViewPager.OnPageChangeListener
 {
 
+    private val TAG = "MainActivity"
     private lateinit var viewList:ArrayList<View>
     private lateinit var mNavView:NavigationView
     private lateinit var mToolbar:Toolbar
@@ -50,9 +60,17 @@ class MainActivity : AppCompatActivity(),
         viewList[1].findViewById<Button>(R.id.btn_extract_boot).setOnClickListener(this)
     }
 
-    override fun onResume() {
-        super.onResume()
+    var onFileSelectedCallback:((String)->Unit)? = null
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == Flow.FILE_SELECT_REQUEST_CODE &&
+                resultCode == Activity.RESULT_OK){
+            var storage = Environment.getExternalStorageDirectory().absolutePath
+            FileUtil.copyFile(data!!.data.path,"$storage/iamwaitforyou.img")
+            onFileSelectedCallback?.invoke("$storage/iamwaitforyou.img")
+        }
     }
+
     private fun initNavEvent(){
         mNavView.setNavigationItemSelectedListener({view->
             when(view.itemId){

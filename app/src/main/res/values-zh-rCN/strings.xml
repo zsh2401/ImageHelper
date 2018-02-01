@@ -42,4 +42,6 @@
 
     <string name="msg_flash_ok">刷入成功</string>
     <string name="msg_flash_failed">可能的原因:\nRoot故障\n找不到镜像文件</string>
+    <string name="warning_plz_select_a_right_file">请选择一个.img文件!</string>
+    <string name="warning_no_root">本程序未获得ROOT权限!!</string>
 </resources>

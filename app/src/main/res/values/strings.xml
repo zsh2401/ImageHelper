@@ -46,7 +46,9 @@
 
     <string name="msg_extract_ok">You can see the img file in /sdcard/</string>
     <string name="msg_extract_failed">Maybe:\nRoot error\nCan not found image</string>
-    
+
+    <string name="warning_no_root">HAVE NO ROOT PERMISSION!</string>
     <string name="msg_flash_ok">Successful!</string>
     <string name="msg_flash_failed">Failed!</string>
+    <string name="warning_plz_select_a_right_file">Please select a .img file!</string>
 </resources>
