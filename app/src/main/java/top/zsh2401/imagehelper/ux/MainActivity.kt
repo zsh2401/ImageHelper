@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.ContentUris
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -14,6 +15,8 @@ import android.provider.MediaStore
 import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewPager
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
@@ -23,8 +26,12 @@ import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import android.widget.Button
+import top.zsh2401.imagehelper.App
 import top.zsh2401.imagehelper.R
+import java.net.URI
 
 class MainActivity : AppCompatActivity(),
         View.OnClickListener,
@@ -48,6 +55,52 @@ class MainActivity : AppCompatActivity(),
         Flow.mainActivity = this
         Flow.view = mNavView
         initEvent()
+        checkAndRequestPermission()
+    }
+    private val myPermissionRequestCode = 2405
+    private fun checkAndRequestPermission(){
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M)return
+        var permissions = arrayOf(
+                "android.permission.READ_EXTERNAL_STORAGE",
+                "android.permission.WRITE_EXTERNAL_STORAGE")
+        var allGrated =checkPermissionAllGranted(permissions)
+        if(allGrated)return
+        ActivityCompat.requestPermissions(this, permissions,myPermissionRequestCode)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if(requestCode==myPermissionRequestCode){
+            var isAllGranted = true
+            for(grant in grantResults){
+                if(grant != PackageManager.PERMISSION_GRANTED){
+                    isAllGranted = false
+                    break
+                }
+            }
+
+            if(!isAllGranted){
+                var builder = AlertDialog.Builder(this)
+                builder.setTitle(R.string.title_sorry)
+                builder.setMessage(R.string.msg_permission_deined)
+                builder.setOnDismissListener({
+                    finish()
+                })
+                builder.setNegativeButton("ok",null)
+//                builder.setNeutralButton("ok",null)
+                builder.show()
+            }
+        }
+    }
+
+    private fun checkPermissionAllGranted(permissions: Array<String>): Boolean {
+        for (permission in permissions) {
+            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+                // 只要有一个权限没有被授予, 则直接返回 false
+                return false
+            }
+        }
+        return true
     }
 
     private fun initEvent(){
@@ -60,14 +113,13 @@ class MainActivity : AppCompatActivity(),
         viewList[1].findViewById<Button>(R.id.btn_extract_boot).setOnClickListener(this)
     }
 
-    var onFileSelectedCallback:((String)->Unit)? = null
+    var onFileSelectedCallback:((Uri)->Unit)? = null
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == Flow.FILE_SELECT_REQUEST_CODE &&
                 resultCode == Activity.RESULT_OK){
-            var storage = Environment.getExternalStorageDirectory().absolutePath
-            FileUtil.copyFile(data!!.data.path,"$storage/iamwaitforyou.img")
-            onFileSelectedCallback?.invoke("$storage/iamwaitforyou.img")
+            Log.d(TAG,"real path: " + App.current.getRealPathFromURI(data!!.data))
+            onFileSelectedCallback?.invoke(data!!.data)
         }
     }
 

@@ -5,6 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context="top.zsh2401.imagehelper.ux.MainActivity">
 
 
@@ -15,8 +16,12 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar_main"
+
             android:layout_width="match_parent"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
+
+            app:itemIconTint="@drawable/btm_nav_color"
+            app:itemTextColor="@drawable/btm_nav_color"
+            android:background="@color/toolBarBgColor"
             android:layout_height="wrap_content"></android.support.v7.widget.Toolbar>
 
         <android.support.v4.view.ViewPager
@@ -32,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             app:menu="@menu/bottom_menu"
-            android:background="#ffffff">
+            android:background="@color/bottomBarColor">
         </android.support.design.widget.BottomNavigationView>
     </LinearLayout>
 

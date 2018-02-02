@@ -11,11 +11,11 @@ object ImageFinder {
     val TAG = "ImageFinder"
     @Throws(ImageNotFoundException::class)
     fun pathOf(img: Images):String{
-        return methodOne(img) ?:
-                methodTwo(img) ?:
+        return method1(img) ?:
+                method2(img) ?:
                 throw ImageNotFoundException()
     }
-    private fun methodOne(img: Images):String?{
+    private fun method1(img: Images):String?{
         if(!CommandHelper.haveFindCommand())return null
         var findResult =
                 SuManager.execSuCommand(
@@ -35,7 +35,7 @@ object ImageFinder {
         Log.d(TAG,"method1 result: " + (line?:"null"))
         return line
     }
-    private fun methodTwo(img: Images):String?{
+    private fun method2(img: Images):String?{
         var maybePath1 =
                 "/dev/block/platform/*/by-name/${img.toString().toLowerCase()}"
         var maybePath2 =

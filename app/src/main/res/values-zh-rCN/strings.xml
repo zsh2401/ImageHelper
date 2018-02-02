@@ -1,4 +1,7 @@
 <resources>
+    <string name="l_en_us">English</string>
+    <string name="l_zh_cn">简体中文</string>
+
     <string name="l_auto">自动</string>
     <string name="language_name">@string/l_zh_cn</string>
     <string name="app_name">镜像助手</string>
@@ -10,6 +13,9 @@
     <string name="action_flash">刷入</string>
     <string name="action_extract">提取</string>
     <string name="action_switch_language">切换语言</string>
+
+    <string name="msg_extracting">提取中,稍安勿躁</string>
+    <string name="msg_flashing">刷入中,稍等...</string>
 
     <string name="msg_goto_alipay_failed">跳转支付宝转账失败...已复制支付宝账号,请手动前往支付宝粘贴账号并转账..</string>
     <string name="title_opensource">这是一个自由开源软件</string>
@@ -44,4 +50,9 @@
     <string name="msg_flash_failed">可能的原因:\nRoot故障\n找不到镜像文件</string>
     <string name="warning_plz_select_a_right_file">请选择一个.img文件!</string>
     <string name="warning_no_root">本程序未获得ROOT权限!!</string>
+    <string name="donot_reboot">稍后我自行重启</string>
+    <string name="reboot_to_recovery">重启到恢复模式</string>
+
+    <string name="title_sorry">抱歉</string>
+    <string name="msg_permission_deined">抱歉,本软件需要读取内部存储的权限用于操作镜像文件,但是您没有授予这项权限...软件即将退出,您可以在设置中重新打开该权限以使用本软件</string>
 </resources>
